@@ -80,12 +80,25 @@ async function getSitemapURLFromDomain(domain) {
             `https://${domain}/blog-pages-sitemap.xml`,
             `https://${domain}/member-profile-sitemap.xml`,
             `https://${domain}/dynamic-pages-sitemap.xml`,
-            `https://${domain}/other-pages-sitemap.xml`,
+            `https://${domain}/other-pages-sitemap.xml`,k
             `https://${domain}/sitemap.xml.gz`,
             `https://${domain}/sitemap1.xml`,
             `https://${domain}/sitemapindex.xml`,
             `https://${domain}/sitemap_index.xml.gz`,
             `https://${domain}/sitemap/index.xml`,
+            `https://${domain}/sitemap.xml`,
+            `https://${domain}/sitemap_map.html`,
+            `https://${domain}/wp-sitemap.xml`,
+            `https://${domain}/sitemaps`,
+            `https://${domain}/other-pages-sitemap.xml`,
+            `https://${domain}/category-sitemap.xml`,
+            `https://${domain}/tag-sitemap.xml`,
+            `https://${domain}/author-sitemap.xml`,
+            `https://${domain}/site-map`,
+            `https://${domain}/post-sitemap`,
+            `https://${domain}/sitemaps-2-sitemap.xml`,
+            `https://${domain}/page-sitemap`,
+            `https://${domain}/sitemap`,
         ];
         for (const location of sitemapLocations) {
             const response = await fetch(location);
