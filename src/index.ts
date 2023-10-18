@@ -138,11 +138,14 @@ async function sitemapDownloader(sitemap) {
     // Check if the input is a valid URL
     if (typeof sitemap !== "string" || !sitemap.startsWith("http")) return {error: 'Not a valid URL'};
 
+    const response = await fetch(sitemap);
+    if (!response.ok) return {error: 'Invalid sitemap URL'};
+
     // Create an options object for the SitemapParser instance
     const options = {
         rejectInvalidContentType: true,
         userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
-        maximumRetries: 3,
+        maximumRetries: 1,
         maximumDepth: 5,
         timeout: 5000,
         debug: false,
@@ -153,6 +156,7 @@ async function sitemapDownloader(sitemap) {
 
     // Run the sitemap downloader and return the parsed sitemap or an error message
     try {
+        console.log(`Downloading ${sitemap}`);
         return await parser.run(sitemap);
     } catch (error) {
         console.error(error);
